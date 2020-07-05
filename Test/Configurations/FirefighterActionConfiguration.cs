@@ -8,7 +8,7 @@ namespace Test.Configurations
     {
         public void Configure(EntityTypeBuilder<FirefighterAction> builder)
         {
-            builder.HasKey(fa => new {fa.Action.IdAction, fa.Firefighter.IdFirefighter});
+            builder.HasKey(fa => new {fa.IdFirefighter, fa.IdAction});
 
             builder.HasOne(fa => fa.Firefighter)
                 .WithMany(f => f.FirefighterActions)
