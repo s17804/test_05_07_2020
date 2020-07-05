@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Test.Exceptions;
 using Test.Services;
 
 
@@ -19,7 +20,14 @@ namespace Test.Controllers
         [Route("actions")]
         public IActionResult GetFirefighterActions(int idFirefighter)
         {
-            return Ok(_service.GetAllFirefighterActions(idFirefighter));
+            try
+            {
+                return Ok(_service.GetAllFirefighterActions(idFirefighter));
+            }
+            catch (ResourceNotFoundException e)
+            {
+                return NotFound(e);
+            }
         }
         
     }

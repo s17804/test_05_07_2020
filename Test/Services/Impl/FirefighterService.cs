@@ -30,7 +30,7 @@ namespace Test.Services.Impl
                 throw new ResourceNotFoundException("Not found");
             }
             
-           return new FirefighterActionsResponseDto
+            return new FirefighterActionsResponseDto
             {
                 IdFirefighter = firefighter.IdFirefighter,
                 Actions = firefighter.FirefighterActions.Select(fa => 
